@@ -13,6 +13,8 @@ class LeverancierController extends Controller
     public function index(string $id)
     {
         //make the join and then return the view
+
+        
         $leverancier = Leverancier::join('product_per_leverancier', 'leveranciers.id', '=', 'product_per_leverancier.leverancier_id')
             ->join('products', 'product_per_leverancier.product_id', '=', 'products.id')
             ->select('leveranciers.*', 'product_per_leverancier.datum_levering', 'product_per_leverancier.aantal', 'product_per_leverancier.datum_eerstvolgende_levering', 'products.product_naam')

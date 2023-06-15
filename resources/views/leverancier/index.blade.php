@@ -25,6 +25,7 @@
                 <th>Datum laatste levering</th>
                 <th>Aantal</th>
                 <th>Eerstvolgende levering</th>
+                <th>Bijvoegen</th>
             </tr>
 
             @foreach($leverancier as $leverancier)
@@ -40,6 +41,7 @@
                 <td>{{$leverancier->datum_levering}}</td>
                 <td>{{$leverancier->aantal}}</td>
                 <td>{{$leverancier->datum_eerstvolgende_levering}}</td>
+                <td><a href="{{route('leverancier.create')}}" class="btn btn-primary">Levering toevoegen</a></td>
             </tr>
                   @endforeach
 </body>

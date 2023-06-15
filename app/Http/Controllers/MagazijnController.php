@@ -31,7 +31,18 @@ class MagazijnController extends Controller
      */
     public function create()
     {
-        //
+
+        //make the query of the create of magazijn using the code from the index of magazijn as a reference and then return it with the view of the create
+        $array = [
+            'magazijn' => Magazijn::join('products', 'magazijns.product_id', '=', 'products.id')->select('magazijns.*', 'products.*', 'product_per_leverancier.*')
+                ->join('product_per_leverancier', 'products.id', '=', 'product_per_leverancier.product_id')
+                ->join('leveranciers', 'product_per_leverancier.leverancier_id', '=', 'leveranciers.id')
+                ->select('magazijns.*', 'products.*', 'product_per_leverancier.*', 'leveranciers.*')
+                ->orderBy('products.barcode', 'asc')
+                ->get()
+        ];
+
+        return view('magazijn.create', $array);
     }
 
     /**

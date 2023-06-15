@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-       //make a table with naam, contactpersoon, leveranciernummer and mobiel
-        Schema::create('leveranciers', function (Blueprint $table) {
+        //make a table with naam, contactpersoon, leveranciernummer and mobiel
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('contact_id')->constrained('contacts');
-            $table->string('leverancier_naam');
-            $table->string('contact_persoon');
-            $table->string('leverancier_nummer');
-            $table->string('mobiel');
+            $table->string('straat');
+            $table->string('huis_nummer');
+            $table->string('postcode');
+            $table->string('stad');
         });
     }
 

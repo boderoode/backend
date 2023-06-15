@@ -12,7 +12,7 @@
 
 
 
-        
+         <a href="{{route('magazijn.create')}}" class="btn btn-primary">Product toevoegen</a>
         
         <table class="table ms-4">
             <tr>
